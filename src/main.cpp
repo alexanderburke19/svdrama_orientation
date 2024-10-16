@@ -203,11 +203,11 @@ void loop()
     float trim_angle = pitch;
 
     // Send yaw, pitch, and roll as an object to SignalK path "navigation.attitude"
-    sk_output_attitude->set_input({yaw, pitch, roll});
+    // sk_output_attitude->set_input({yaw, pitch, roll});
     // Send yaw, pitch, and roll to SignalK paths
-    sk_output_yaw->set_input(magnetic_heading); // Update heading based on magnetometer
-    sk_output_pitch->set_input(pitch);          // Send pitch
-    sk_output_roll->set_input(roll);            // Send roll
+    sk_output_yaw->set_input(yaw);     // Update heading based on magnetometer
+    sk_output_pitch->set_input(pitch); // Send pitch
+    sk_output_roll->set_input(roll);   // Send roll
 
     // Send accelerometer data to SignalK paths
     sk_output_accel_x->set_input(accelX_ms2); // Send accelerometer X in m/s²
